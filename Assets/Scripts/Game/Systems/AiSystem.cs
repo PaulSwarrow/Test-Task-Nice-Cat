@@ -55,11 +55,11 @@ namespace DefaultNamespace
             {
                 case NpcTask.idle:
                     npc.attackCooldown -= Time.deltaTime;
-                    if (Vector3.Distance(npc.followTarget, npc.plane.transform.position) < 20)
+                    if (Vector3.Distance(npc.followTarget, npc.plane.transform.position) < properties.npcFlightDeadZone)
                     {
                         npc.followTarget = GetRandomPosition();
                     }
-                    else if (targetDistance < 400 && npc.attackCooldown <= 0)
+                    else if (targetDistance < properties.npcAttackDistance && npc.attackCooldown <= 0)
                     {
                         npc.attackTime = 0;
                         npc.task = NpcTask.attack;
@@ -68,9 +68,9 @@ namespace DefaultNamespace
                     break;
                 case NpcTask.attack:
                     npc.attackTime += Time.deltaTime;
-                    if (npc.attackTime > 2 || targetDistance < 30)
+                    if (npc.attackTime > properties.npcAttackDuration || targetDistance < properties.npcFlightDeadZone)
                     {
-                        npc.attackCooldown = 5;
+                        npc.attackCooldown = properties.npcAttackCooldown;
                         npc.task = NpcTask.idle;
                         npc.plane.Fire = false;
                     }
@@ -81,7 +81,7 @@ namespace DefaultNamespace
                             GameManager.instance.projectiles.Velocity,
                             GameManager.instance.playerController.Target);
 
-                        npc.plane.Fire = targetDistance < 200;
+                        npc.plane.Fire = targetDistance < properties.npcShootDistance;
                     }
 
                     break;

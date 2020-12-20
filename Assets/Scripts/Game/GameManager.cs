@@ -16,6 +16,11 @@ namespace DefaultNamespace
             public FollowCamera camera;
             public int npcCount = 5;
             public Bounds bounds;
+            public float npcAttackCooldown = 10;
+            public float npcAttackDuration = 2;
+            public float npcAttackDistance = 300;
+            public float npcShootDistance = 150;
+            public float npcFlightDeadZone = 30;
         }
 
         [SerializeField] private Properties properties;
