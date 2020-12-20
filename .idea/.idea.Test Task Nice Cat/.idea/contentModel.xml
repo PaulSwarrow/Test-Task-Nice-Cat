@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Pall\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Pall\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Test Task Nice Cat.-884501239.00" t="ExcludeRecursive" />
+    <e p="D:\Pall\coding\Test Task Nice Cat" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="AllSkyFree" t="Include">
+          <e p="AllSkyFree_Menu.cs" t="Include" />
+          <e p="AllSkyFree_Readme.txt" t="Include" />
+        </e>
+        <e p="JMO Assets" t="Include">
+          <e p="Cartoon FX Easy Editor" t="Include">
+            <e p="CartoonFX Easy Editor Readme.txt" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="CFXEasyEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="WarFX" t="Include">
+            <e p="!WarFX Readme.txt" t="Include" />
+            <e p="_Effects" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="_Effects (Mobile)" t="Include">
+              <e p="MuzzleFlashes" t="Include">
+                <e p="!MuzzleFlash Differences.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="CFX_SpawnSystemEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="CFX_AutoDestructShuriken.cs" t="Include" />
+              <e p="CFX_LightIntensityFade.cs" t="Include" />
+              <e p="WFX_BulletHoleDecal.cs" t="Include" />
+              <e p="WFX_LightFlicker.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="WFX_S Add Scroll.shader" t="Include" />
+              <e p="WFX_S Alpha-Diffuse TintColor.shader" t="Include" />
+              <e p="WFX_S Alpha-Specular TintColor.shader" t="Include" />
+              <e p="WFX_S AlphaBlend NoSoftParticles.shader" t="Include" />
+              <e p="WFX_S AlphaBlend Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft Scroll.shader" t="Include" />
+              <e p="WFX_S Multiply Soft.shader" t="Include" />
+              <e p="WFX_S Particle Add A8.shader" t="Include" />
+              <e p="WFX_S Particle AddSoft A8.shader" t="Include" />
+              <e p="WFX_S Particle Multiply A8.shader" t="Include" />
+              <e p="WFX_S Smoke Scroll.shader" t="Include" />
+            </e>
+            <e p="Spawn System" t="Include">
+              <e p="CFX_SpawnSystem.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Game" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="IGameSystem.cs" t="Include" />
+            <e p="PlaneEntity.cs" t="Include" />
+            <e p="PlaneNpc.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+            <e p="Systems" t="Include">
+              <e p="AiSystem.cs" t="Include" />
+              <e p="CollidersSystem.cs" t="Include" />
+              <e p="PlayerController.cs" t="Include" />
+              <e p="ProjectilesSystem.cs" t="Include" />
+            </e>
+            <e p="Ui" t="Include">
+              <e p="AimUi.cs" t="Include" />
+              <e p="AltitudeUi.cs" t="Include" />
+              <e p="TargetIcon.cs" t="Include" />
+              <e p="TargetsTrackerUi.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Physics" t="Include">
+            <e p="HitInfo.cs" t="Include" />
+            <e p="PhysicBody.cs" t="Include" />
+            <e p="VirtualCollider.cs" t="Include" />
+            <e p="Wings.cs" t="Include" />
+          </e>
+          <e p="Tools" t="Include">
+            <e p="FollowCamera.cs" t="Include" />
+            <e p="ListExtension.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Test Task Nice Cat.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
