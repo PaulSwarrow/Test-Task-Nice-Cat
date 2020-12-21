@@ -19,6 +19,7 @@ namespace DefaultNamespace
 
 
         public PhysicBody Body { get; private set; }
+        public Wings Wings { get; private set; }
         public Transform transform { get; private set; }
         private float gunCooldown = 0;
 
@@ -26,6 +27,7 @@ namespace DefaultNamespace
         {
             transform = base.transform;
             Body = GetComponent<PhysicBody>();
+            Wings = GetComponent<Wings>();
             Body.SetVelocity(((Component) this).transform.forward * 20); //hardcode startup
             deathParticles.SetActive(false);
         }
@@ -45,6 +47,9 @@ namespace DefaultNamespace
                 gunCooldown -= Time.deltaTime;
             }
 
+            Wings.Yaw = yaw;
+            Wings.Pitch = Pitch;
+            Wings.Roll = Roll;
         }
 
         private void Shoot()
@@ -57,9 +62,6 @@ namespace DefaultNamespace
         private void FixedUpdate()
         {
             Body.Accelerate(transform.forward * force);
-
-            var euler = new Vector3(Pitch, yaw, Roll) * (maneuverability);
-            Body.AccelerateRotation(euler);
         }
 
         public void ReceiveHit()

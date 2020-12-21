@@ -47,6 +47,9 @@
             </e>
           </e>
         </e>
+        <e p="mia-ww1-set01" t="Include">
+          <e p="documentation - Meso-Industrial_Age_WW1_Set_01.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Game" t="Include">
             <e p="GameManager.cs" t="Include" />
