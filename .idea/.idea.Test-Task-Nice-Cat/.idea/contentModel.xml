@@ -54,8 +54,11 @@
           <e p="Game" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="IGameSystem.cs" t="Include" />
-            <e p="PlaneEntity.cs" t="Include" />
             <e p="PlaneNpc.cs" t="Include" />
+            <e p="Planes" t="Include">
+              <e p="PlaneEntity.cs" t="Include" />
+              <e p="PropellerView.cs" t="Include" />
+            </e>
             <e p="Projectile.cs" t="Include" />
             <e p="Systems" t="Include">
               <e p="AiSystem.cs" t="Include" />

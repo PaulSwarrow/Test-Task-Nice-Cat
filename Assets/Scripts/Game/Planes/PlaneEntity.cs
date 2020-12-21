@@ -7,7 +7,8 @@ namespace DefaultNamespace
 {
     public class PlaneEntity : MonoBehaviour
     {
-        [SerializeField] private float force;
+        public float force;
+        public float maxForce = 20;
         [SerializeField] [Range(0, 1)] private float maneuverability;
         [SerializeField] private float gunCooldownTime = .2f;
         [SerializeField] private float yaw;
