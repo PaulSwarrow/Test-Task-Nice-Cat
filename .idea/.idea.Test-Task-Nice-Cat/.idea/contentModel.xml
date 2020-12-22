@@ -56,6 +56,7 @@
             <e p="IGameSystem.cs" t="Include" />
             <e p="PlaneNpc.cs" t="Include" />
             <e p="Planes" t="Include">
+              <e p="FlapsAnimator.cs" t="Include" />
               <e p="PlaneEntity.cs" t="Include" />
               <e p="PropellerView.cs" t="Include" />
             </e>
