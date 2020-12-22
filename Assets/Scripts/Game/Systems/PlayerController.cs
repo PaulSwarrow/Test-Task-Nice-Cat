@@ -28,7 +28,17 @@ namespace DefaultNamespace
         {
             plane.Pitch = Input.GetAxis("Vertical");
             plane.Roll = -Input.GetAxis("Horizontal");
+            plane.Yaw = -Input.GetAxis("Yaw");
             plane.Fire = Input.GetButton("Fire1");
+
+            if (Input.GetButton("Run"))
+            {
+                plane.force = Mathf.Min(plane.force + 0.3f * Time.deltaTime, 1);
+            }else if (Input.GetButton("Walk"))
+            {
+                
+                plane.force = Mathf.Max(plane.force - 0.3f * Time.deltaTime, 0);
+            }
         }
 
         public void Stop()

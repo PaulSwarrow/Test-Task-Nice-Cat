@@ -7,11 +7,11 @@ namespace DefaultNamespace
 {
     public class PlaneEntity : MonoBehaviour
     {
-        public float force;
+        [Range(0, 1)] public float force;
         public float maxForce = 20;
         [SerializeField] [Range(0, 1)] private float maneuverability;
         [SerializeField] private float gunCooldownTime = .2f;
-        [SerializeField] private float yaw;
+        [SerializeField] public float Yaw;
         [SerializeField] private GameObject deathParticles;
         public float Roll;
         public float Pitch;
@@ -48,7 +48,7 @@ namespace DefaultNamespace
                 gunCooldown -= Time.deltaTime;
             }
 
-            Wings.Yaw = yaw;
+            Wings.Yaw = Yaw;
             Wings.Pitch = Pitch;
             Wings.Roll = Roll;
         }
@@ -62,12 +62,12 @@ namespace DefaultNamespace
 
         private void FixedUpdate()
         {
-            Body.Accelerate(transform.forward * force);
+            Body.Accelerate(transform.forward * (force * maxForce));
         }
 
         public void ReceiveHit()
         {
-            if(Dead) return;
+            if (Dead) return;
             Dead = true;
             deathParticles.SetActive(true);
             force = 0;

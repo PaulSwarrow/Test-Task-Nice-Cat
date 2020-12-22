@@ -680,8 +680,8 @@ MonoBehaviour:
   target: {fileID: 0}
   offset: {x: 0, y: 6.55, z: -10.24}
   lookOffset: {x: 0, y: 5.95, z: 2}
-  moveSpeed: 4
-  lookSpeed: 4
+  moveSpeed: 5
+  lookSpeed: 3
 --- !u!1 &1013266420
 GameObject:
   m_ObjectHideFlags: 0

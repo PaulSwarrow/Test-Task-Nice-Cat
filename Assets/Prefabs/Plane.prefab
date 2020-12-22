@@ -85,11 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ec13e708164971bd3ab743673c61e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 10
+  force: 1
   maxForce: 20
   maneuverability: 1
   gunCooldownTime: 0.2
-  yaw: 0
+  Yaw: 0
   deathParticles: {fileID: 6466196432028828161}
   Roll: 0
   Pitch: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   propellerRoot: {fileID: 8683809264031731181}
   propellerRenderer: {fileID: 3091786660933831970}
   fx: {fileID: 8123196276916369706}
-  velocity: 500
+  velocity: 1000
 --- !u!1 &7998773264304961941
 GameObject:
   m_ObjectHideFlags: 0
