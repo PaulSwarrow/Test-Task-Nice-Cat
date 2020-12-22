@@ -4,7 +4,7 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AltitudeUi : MonoBehaviour
+public class PlaneUi : MonoBehaviour
 {
     private Text text;
 
@@ -17,7 +17,9 @@ public class AltitudeUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"Altitude: {GameManager.instance.playerController.Altitude}";
+        text.text = $"Altitude: {GameManager.instance.playerController.Altitude}\n" +
+                    $"Velocity: {GameManager.instance.playerController.Target.Body.AbsoluteVelocity.magnitude}\n" +
+                    $"Engine: {GameManager.instance.playerController.Target.force}";
 
     }
 }

@@ -8,7 +8,7 @@ namespace DefaultNamespace
     {
         private PlaneEntity plane;
         private GameManager.Properties properties;
-        public Vector3 AimPoint => plane.transform.position + plane.transform.forward * 100;
+        public Vector3 AimPoint => plane.transform.position + plane.transform.forward * 1000;
         public float Altitude => plane.transform.position.y;
         public PlaneEntity Target => plane;
 
@@ -21,7 +21,6 @@ namespace DefaultNamespace
         {
             plane = Object.Instantiate(properties.planePrefab, properties.bounds.center, Quaternion.identity);
             properties.camera.target = plane.transform;
-            
         }
 
         public void Update()
@@ -31,14 +30,7 @@ namespace DefaultNamespace
             plane.Yaw = -Input.GetAxis("Yaw");
             plane.Fire = Input.GetButton("Fire1");
 
-            if (Input.GetButton("Run"))
-            {
-                plane.force = Mathf.Min(plane.force + 0.3f * Time.deltaTime, 1);
-            }else if (Input.GetButton("Walk"))
-            {
-                
-                plane.force = Mathf.Max(plane.force - 0.3f * Time.deltaTime, 0);
-            }
+            plane.force = Mathf.Clamp(plane.force + Input.GetAxis("Mouse ScrollWheel") * 80f * Time.deltaTime, 0, 1);
         }
 
         public void Stop()

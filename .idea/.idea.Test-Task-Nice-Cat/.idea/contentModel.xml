@@ -68,7 +68,7 @@
             </e>
             <e p="Ui" t="Include">
               <e p="AimUi.cs" t="Include" />
-              <e p="AltitudeUi.cs" t="Include" />
+              <e p="PlaneUi.cs" t="Include" />
               <e p="TargetIcon.cs" t="Include" />
               <e p="TargetsTrackerUi.cs" t="Include" />
             </e>
