@@ -19,6 +19,7 @@ public class PlaneUi : MonoBehaviour
     {
         text.text = $"Altitude: {GameManager.instance.playerController.Altitude}\n" +
                     $"Velocity: {GameManager.instance.playerController.Target.Body.AbsoluteVelocity.magnitude}\n" +
+                    $"Lift force: {GameManager.instance.playerController.Target.Wings.Lifting}\n" +
                     $"Engine: {GameManager.instance.playerController.Target.force}";
 
     }

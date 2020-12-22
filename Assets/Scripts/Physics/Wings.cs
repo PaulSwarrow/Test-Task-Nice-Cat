@@ -20,6 +20,7 @@ namespace Physics
         public float Roll;
         public float Yaw;
         public float Pitch;
+        public float Lifting { get; private set; }
 
         private void Awake()
         {
@@ -37,6 +38,7 @@ namespace Physics
             var lifting = up * Mathf.Min(
                               effectiveVelocity * liftForce,
                               UnityEngine.Physics.gravity.magnitude);
+            Lifting = lifting.magnitude;
 
             //LINEAR DAMPING
             var damping = -_transform.TransformDirection(new Vector3(

@@ -62,9 +62,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a3b602b99f4a1ea4f063164ef991ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friction: {x: 0.5, y: 1, z: 0.15}
+  friction: {x: 0.5, y: 1, z: 0.06}
   angularDamp: {x: 0.18, y: 0.5, z: 1}
-  liftForce: 0.5
+  liftForce: 0.17
   flapsDrag: {x: 1, y: 1, z: 1}
   flapsForce: {x: 2, y: 1, z: 3}
   velocityAlignmentDeadZone: 0.1
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 1
-  maxForce: 20
+  maxForce: 9
   maneuverability: 1
   gunCooldownTime: 0.2
   Yaw: 0
