@@ -1,19 +1,21 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Random = UnityEngine.Random;
 
 namespace Physics
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Wings : MonoBehaviour
     {
+        private const float AverageSpeed = 116f;
         [SerializeField] private Vector3 friction;
         [SerializeField] private Vector3 angularDamp;
         [SerializeField] private float liftForce;
         [SerializeField] private Vector3 flapsDrag;
         [SerializeField] private Vector3 flapsForce;
-        [SerializeField] private float velocityAlignmentDeadZone = 3f;
-        [SerializeField] private float velocityAlignment;
+        [SerializeField] private Vector2 velocityAlignment;
+        [SerializeField] private Vector3 lowSpeedNoise;
         private Rigidbody body;
         private Transform _transform;
 
@@ -31,14 +33,13 @@ namespace Physics
         private void FixedUpdate()
         {
             var localVelocity = _transform.InverseTransformDirection(body.velocity);
+            var gravity = UnityEngine.Physics.gravity.magnitude;
 
             //LIFT FORCE
             var effectiveVelocity = localVelocity.z;
             var up = _transform.up;
-            var lifting = up * Mathf.Min(
-                              effectiveVelocity * liftForce,
-                              UnityEngine.Physics.gravity.magnitude);
-            Lifting = lifting.magnitude;
+            Lifting = effectiveVelocity * liftForce;
+            var liftingVector = up * Mathf.Min(effectiveVelocity * liftForce, gravity);
 
             //LINEAR DAMPING
             var damping = -_transform.TransformDirection(new Vector3(
@@ -47,7 +48,7 @@ namespace Physics
                 localVelocity.z * friction.z));
 
             //APPLY LINEAR FORCES
-            body.AddForce(lifting + damping, ForceMode.Acceleration);
+            body.AddForce(liftingVector + damping, ForceMode.Acceleration);
 
             //ANGULAR DAMPING
             var localAngularVelocity = transform.InverseTransformDirection(body.angularVelocity);
@@ -65,13 +66,29 @@ namespace Physics
             );
 
             //ALIGN TO VELOCITY VECTOR
-            var vectorDelta = Vector3.SignedAngle(Vector3.forward, localVelocity, Vector3.up);
-            var align = Vector3.up * (Mathf.Clamp(vectorDelta, -90, 90) * velocityAlignment);
-            align *= Time.fixedDeltaTime;
+            //applied on high speed
+            var hAlignAmount = localVelocity.magnitude / AverageSpeed;
+            var hAngle = Vector3.SignedAngle(Vector3.forward, localVelocity, Vector3.up);
+            var hAlign = Vector3.up * (Mathf.Clamp(hAngle, -90, 90) * velocityAlignment.x);
+            hAlign *= Time.fixedDeltaTime * hAlignAmount;
 
+            //applied on low speed
+            var vAlignAmount = Mathf.Clamp(0.6f - Lifting / gravity, 0, 1);
+            var vAngle = Vector3.SignedAngle(Vector3.forward, localVelocity, Vector3.right);
+            var vAlign = Vector3.right * (Mathf.Clamp(vAngle, -90, 90) * velocityAlignment.y);
+            vAlign *= Time.fixedDeltaTime * Mathf.Pow(vAlignAmount, 2);
+
+
+            //NOISE:
+            var noiseAmount = Mathf.Max(1 - Lifting / gravity, 0);
+            var noise = new Vector3(
+                            lowSpeedNoise.x * noiseAmount * Random.Range(-1f, 1f),
+                            lowSpeedNoise.y * noiseAmount * Random.Range(-1f, 1f),
+                            lowSpeedNoise.z * noiseAmount * Random.Range(-1f, 1f)) * Time.fixedDeltaTime;
             //APPLY TORQUE
-            body.AddRelativeTorque(angularAcceleration - angularDamping + align, ForceMode.Acceleration);
-
+            body.AddRelativeTorque(
+                angularAcceleration - angularDamping + hAlign + vAlign + noise,
+                ForceMode.Acceleration);
         }
     }
 }

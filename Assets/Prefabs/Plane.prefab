@@ -67,8 +67,8 @@ MonoBehaviour:
   liftForce: 0.17
   flapsDrag: {x: 1, y: 1, z: 1}
   flapsForce: {x: 2, y: 1, z: 3}
-  velocityAlignmentDeadZone: 0.1
-  velocityAlignment: 0.5
+  velocityAlignment: {x: 10, y: 40}
+  lowSpeedNoise: {x: 37.3, y: 1, z: 80}
   Roll: 0
   Yaw: 0
   Pitch: 0
